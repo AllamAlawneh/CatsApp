@@ -5,7 +5,7 @@ import {storageKeys} from '../../constants';
 import StorageHelper from '../../helpers/storage';
 
 function HomeScreen() {
-  const [cats, setCats] = useState([]);
+  const [cats, setCats] = useState<CatItem[]>([]);
 
   useFocusEffect(
     useCallback(() => {
@@ -16,7 +16,13 @@ function HomeScreen() {
     }, []),
   );
 
-  const renderCatItem = ({item}: {item: any}) => {
+  const deleteCatItem = (index: number) => {
+    const clonedCats = [...cats];
+    clonedCats.splice(index, 1);
+    setCats(clonedCats);
+  };
+
+  const renderCatItem = ({item, index}: {item: CatItem; index: number}) => {
     return null;
   };
 
