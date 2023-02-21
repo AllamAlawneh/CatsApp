@@ -62,7 +62,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
             activeOpacity={1}
             onPress={() => deleteCatItem(index)}>
             <View pointerEvents="none">
-              <Icon size={20} color={colors.red} name="trash" />
+              <Icon size={24} color={colors.red} name="trash" />
             </View>
           </TouchableOpacity>
         </TouchableOpacity>
@@ -70,13 +70,26 @@ function HomeScreen({navigation}: HomeScreenProps) {
     );
   };
 
+  const renderEmptyView=()=>{
+return(
+  <View style={styles.noDataContainer}>
+<Text style={styles.noDataTxt}>
+  {'No Cats'}
+</Text>
+  </View>
+)
+  };
+
   return (
-    <View style={{flex: 1, marginTop: 15}}>
+    <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
+        data={cats}
         renderItem={renderCatItem}
+        ListEmptyComponent={renderEmptyView}
       />
+
+    
     </View>
   );
 }

@@ -3,14 +3,18 @@ import colors from '../../theme/colors';
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
-    borderColor: colors.primary,
     borderRadius: 10,
+    backgroundColor: colors.primary,
     paddingHorizontal: 8,
-    paddingVertical: 8,
+    paddingVertical:16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  inputText: {
-    color: colors.black,
+  title: {
+    color: colors.white,
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight:'bold'
   },
 });
 

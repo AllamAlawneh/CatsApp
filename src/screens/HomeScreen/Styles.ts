@@ -4,6 +4,8 @@ import colors from '../../theme/colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.white,
+    paddingTop: 16,
   },
   catLiContainer: {
     flexDirection: 'row',
@@ -15,6 +17,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     marginBottom: 16,
     borderRadius: 10,
+    elevation: 2,
   },
   imgStyle: {
     height: 25,
@@ -29,6 +32,15 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  noDataContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noDataTxt: {
+    color: colors.black,
+    fontSize: 18,
+    textAlign: 'center',
   },
 });
 
