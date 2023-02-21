@@ -1,16 +1,15 @@
 import {useFocusEffect} from '@react-navigation/native';
 import React, {useCallback, useState} from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
 import {storageKeys} from '../../constants';
 import StorageHelper from '../../helpers/storage';
 
-function HomeScreen() {
+function HomeScreen({navigation}) {
   const [cats, setCats] = useState<CatItem[]>([]);
 
   useFocusEffect(
     useCallback(() => {
       StorageHelper.getItem(storageKeys.catsKey).then(catsFromStorage => {
-        console.log('res is', catsFromStorage);
         setCats(catsFromStorage);
       });
     }, []),
@@ -27,12 +26,13 @@ function HomeScreen() {
   };
 
   return (
-    <View>
-      <FlatList
+    <View style={{flex: 1, alignItems: 'center'}}>
+      <Text style={{color:"black"}}>Home screen</Text>
+
+      {/* <FlatList
         showsVerticalScrollIndicator={false}
         data={cats}
-        renderItem={renderCatItem}
-      />
+        renderItem={renderCatItem} /> */}
     </View>
   );
 }
