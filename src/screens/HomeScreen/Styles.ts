@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../theme/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -10,10 +11,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '90%',
     alignSelf: 'center',
-    padding:16,
-    backgroundColor:'#2d99ff',
-    marginBottom:16,
-    borderRadius:10
+    padding: 16,
+    backgroundColor: colors.primary,
+    marginBottom: 16,
+    borderRadius: 10,
   },
   imgStyle: {
     height: 25,
@@ -25,6 +26,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   catLiLeftContainer: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
   },

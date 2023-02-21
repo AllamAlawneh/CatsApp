@@ -1,18 +1,26 @@
-import React, {useCallback, useState} from 'react';
-import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
+import React, {useCallback, useLayoutEffect, useState} from 'react';
+import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import {storageKeys} from '../../constants';
 import StorageHelper from '../../helpers/storage';
 import styles from './Styles';
 import {useFocusEffect} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import colors from '../../theme/colors';
+import {StackNavigationProp} from '@react-navigation/stack';
+import AddIcon from '../../navigation/Views/AddIcon';
 
 interface HomeScreenProps {
-  route: any;
-  navigation: any;
+  navigation: StackNavigationProp<any>;
 }
 
 function HomeScreen({navigation}: HomeScreenProps) {
   const [cats, setCats] = useState<CatItem[]>([]);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => <AddIcon onPress={goToAddCat} />,
+    });
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -21,6 +29,10 @@ function HomeScreen({navigation}: HomeScreenProps) {
       });
     }, []),
   );
+
+  const goToAddCat = () => {
+    navigation.navigate('AddEditCatScreen');
+  };
 
   const deleteCatItem = (index: number) => {
     const clonedCats = [...cats];
@@ -41,25 +53,18 @@ function HomeScreen({navigation}: HomeScreenProps) {
           style={styles.catLiLeftContainer}
           activeOpacity={1}
           onPress={handleCatItemPress}>
-          <Image
-            resizeMode="contain"
-            style={styles.imgStyle}
-            source={{
-              uri: 'https://cdn-icons-png.flaticon.com/512/616/616430.png',
-            }}
-          />
-
+          <Icon size={20} color={colors.white} name="logo-octocat" />
           <Text style={styles.catLiName}>{'cat 1'}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => deleteCatItem(index)}>
-          <Image
-            resizeMode="contain"
-            style={styles.imgStyle}
-            source={{
-              uri: 'https://w1.pngwing.com/pngs/431/160/png-transparent-icon-design-trash-red-line-area-material-rectangle-thumbnail.png',
-            }}
-          />
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={() => deleteCatItem(index)}>
+            <View pointerEvents="none">
+              <Icon size={20} color={colors.red} name="trash" />
+            </View>
+          </TouchableOpacity>
         </TouchableOpacity>
       </View>
     );

@@ -1,17 +1,19 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import DetailsScreen from '../screens/HomeScreen/DetailsScreen';
-import AddScreen from '../screens/HomeScreen/AddScreen';
+import AddEditCatScreen from '../screens/AddEditCatScreen/AddEditCatScreen';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="My Cats" component={HomeScreen} />
-      <Stack.Screen name="Details" component={DetailsScreen} />
-      <Stack.Screen name="AddCats" component={AddScreen} />
+      <Stack.Screen
+        options={{title: 'My Cats'}}
+        name="MyCatsScreen"
+        component={HomeScreen}
+      />
+      <Stack.Screen name="AddEditCatScreen" component={AddEditCatScreen} />
     </Stack.Navigator>
   );
 }
