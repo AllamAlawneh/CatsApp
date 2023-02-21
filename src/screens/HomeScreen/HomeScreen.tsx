@@ -4,8 +4,10 @@ import {storageKeys} from '../../constants';
 import StorageHelper from '../../helpers/storage';
 import styles from './Styles';
 import {useFocusEffect} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 interface HomeScreenProps {
+  route: any;
   navigation: any;
 }
 
@@ -28,7 +30,9 @@ function HomeScreen({navigation}: HomeScreenProps) {
     StorageHelper.saveItem(storageKeys.catsKey, clonedCats);
   };
 
-  const handleCatItemPress = () => {};
+  const handleCatItemPress = () => {
+    navigation.navigate('Details');
+  };
 
   const renderCatItem = ({item, index}: {item: CatItem; index: number}) => {
     return (
@@ -62,12 +66,10 @@ function HomeScreen({navigation}: HomeScreenProps) {
   };
 
   return (
-    <View style={{flex: 1}}>
-      <Text style={{color: 'black'}}>Home screen</Text>
-
+    <View style={{flex: 1, marginTop: 15}}>
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={cats}
+        data={[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
         renderItem={renderCatItem}
       />
     </View>

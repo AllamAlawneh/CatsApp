@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     padding:16,
-    backgroundColor:'red',
+    backgroundColor:'#2d99ff',
     marginBottom:16,
     borderRadius:10
   },
@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
   },
   catLiName: {
     marginLeft: 8,
-    color: 'blue',
-    fontSize: 16,
+    color: 'white',
+    fontSize: 24,
   },
   catLiLeftContainer: {
     flexDirection: 'row',
