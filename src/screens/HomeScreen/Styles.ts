@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   imgStyle: {
-    height: 25,
-    width: 25,
+    height: 200,
+    width: 200,
   },
   catLiName: {
     marginLeft: 8,
@@ -34,13 +34,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   noDataContainer: {
+    marginTop: 30,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 30,
   },
   noDataTxt: {
     color: colors.black,
-    fontSize: 18,
+    fontSize: 28,
     textAlign: 'center',
+    marginBottom: 30,
   },
 });
 

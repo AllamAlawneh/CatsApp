@@ -17,7 +17,7 @@ interface AddEditCatScreenProps {
 type FormState = {
   name: string;
   age: string;
-  peer: string;
+  breed: string;
   color: string;
 };
 
@@ -28,7 +28,7 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
   const [formState, setFormState] = useState<FormState>({
     name: '',
     age: '',
-    peer: '',
+    breed: '',
     color: '',
   });
   const [loading, setLoading] = useState<boolean>(false);
@@ -41,7 +41,7 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
           name: catById.name,
           age: catById.age,
           color: catById.color,
-          peer: catById.peer,
+          breed: catById.breed,
         });
       });
     }
@@ -59,7 +59,7 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
           name: formState.name,
           age: formState.age,
           color: formState.color,
-          peer: formState.peer,
+          breed: formState.breed,
         };
         StorageHelper.saveItem(storageKeys.catsKey, cats);
         setLoading(false);
@@ -71,7 +71,7 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
         id: new Date().getTime(),
         name: formState.name,
         age: formState.age,
-        peer: formState.peer,
+        breed: formState.breed,
         color: formState.color,
       };
       if (cats == null) {
@@ -111,9 +111,9 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
 
         <Input
           containerStyle={styles.marginTop16}
-          onChange={val => setFormState(oldVal => ({...oldVal, peer: val}))}
-          value={formState?.peer as string}
-          placeholder="Peer"
+          onChange={val => setFormState(oldVal => ({...oldVal, breed: val}))}
+          value={formState?.breed as string}
+          placeholder="breed"
         />
 
         <Input

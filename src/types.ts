@@ -2,6 +2,6 @@ interface CatItem {
   name: string;
   id: number;
   age: string;
-  peer: string;
+  breed: string;
   color: string;
 }

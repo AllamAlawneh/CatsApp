@@ -1,10 +1,11 @@
 import React, {useCallback, useLayoutEffect, useState} from 'react';
-import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
 import {storageKeys} from '../../constants';
 import StorageHelper from '../../helpers/storage';
 import styles from './Styles';
 import {useFocusEffect} from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import Icons from 'react-native-vector-icons/Feather';
 import colors from '../../theme/colors';
 import {StackNavigationProp} from '@react-navigation/stack';
 import AddIcon from '../../navigation/Views/AddIcon';
@@ -53,7 +54,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
           style={styles.catLiLeftContainer}
           activeOpacity={1}
           onPress={() => handleCatItemPress(item)}>
-          <Icon size={20} color={colors.white} name="logo-octocat" />
+          <Icon size={20} color={colors.white} name="cat" />
           <Text style={styles.catLiName}>{item.name}</Text>
         </TouchableOpacity>
 
@@ -62,7 +63,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
             activeOpacity={1}
             onPress={() => deleteCatItem(index)}>
             <View pointerEvents="none">
-              <Icon size={24} color={colors.red} name="trash" />
+              <Icons size={24} color={colors.red} name="trash-2" />
             </View>
           </TouchableOpacity>
         </TouchableOpacity>
@@ -74,6 +75,13 @@ function HomeScreen({navigation}: HomeScreenProps) {
     return (
       <View style={styles.noDataContainer}>
         <Text style={styles.noDataTxt}>{'No Cats'}</Text>
+        <Image
+          resizeMode="contain"
+          style={styles.imgStyle}
+          source={{
+            uri: 'https://st.depositphotos.com/1000507/56447/v/600/depositphotos_564474342-stock-illustration-cat-eyes-closed-confounded-pictorial.jpg',
+          }}
+        />
       </View>
     );
   };

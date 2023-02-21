@@ -41,8 +41,8 @@ function CatDetails({navigation, route}: CatDetailsProps) {
         </View>
 
         <View style={styles.detailsItemContainer}>
-          <Text style={styles.detailsItemTitle}>{'Peer'}</Text>
-          <Text style={styles.detailsItemValue}>{catDetails.peer}</Text>
+          <Text style={styles.detailsItemTitle}>{'breed'}</Text>
+          <Text style={styles.detailsItemValue}>{catDetails.breed}</Text>
         </View>
 
         <View style={styles.detailsItemContainer}>
