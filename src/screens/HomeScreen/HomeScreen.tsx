@@ -42,8 +42,8 @@ function HomeScreen({navigation}: HomeScreenProps) {
     StorageHelper.saveItem(storageKeys.catsKey, clonedCats);
   };
 
-  const handleCatItemPress = () => {
-    navigation.navigate('Details');
+  const handleCatItemPress = (item: CatItem) => {
+    navigation.navigate('CatDetailsScreen', {catDetails: item});
   };
 
   const renderCatItem = ({item, index}: {item: CatItem; index: number}) => {
@@ -52,7 +52,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
         <TouchableOpacity
           style={styles.catLiLeftContainer}
           activeOpacity={1}
-          onPress={handleCatItemPress}>
+          onPress={() => handleCatItemPress(item)}>
           <Icon size={20} color={colors.white} name="logo-octocat" />
           <Text style={styles.catLiName}>{item.name}</Text>
         </TouchableOpacity>

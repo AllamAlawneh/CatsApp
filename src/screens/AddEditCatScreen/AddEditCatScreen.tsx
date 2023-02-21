@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, ScrollView} from 'react-native';
 import Input from '../../components/Input/Input';
 import styles from './Styles';
@@ -22,6 +22,9 @@ type FormState = {
 };
 
 function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
+  // for editing.
+  const catId = route.params?.catId;
+
   const [formState, setFormState] = useState<FormState>({
     name: '',
     age: '',
@@ -30,11 +33,40 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
   });
   const [loading, setLoading] = useState<boolean>(false);
 
+  useEffect(() => {
+    if (catId) {
+      StorageHelper.getItem(storageKeys.catsKey).then(cats => {
+        const catById: CatItem = cats.find((it: CatItem) => it.id == catId);
+        setFormState({
+          name: catById.name,
+          age: catById.age,
+          color: catById.color,
+          peer: catById.peer,
+        });
+      });
+    }
+  }, [catId]);
+
   const addCat = async () => {
     try {
       setLoading(true);
-
       const cats = await StorageHelper.getItem(storageKeys.catsKey);
+      // edit cat.
+      if (catId) {
+        const catIndex = cats.findIndex((it: CatItem) => it.id == catId);
+        cats[catIndex] = {
+          ...cats[catIndex],
+          name: formState.name,
+          age: formState.age,
+          color: formState.color,
+          peer: formState.peer,
+        };
+        StorageHelper.saveItem(storageKeys.catsKey, cats);
+        setLoading(false);
+        navigation.popToTop();
+        return;
+      }
+
       const newCat: CatItem = {
         id: new Date().getTime(),
         name: formState.name,
@@ -50,7 +82,7 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
       }
 
       setLoading(false);
-      navigation.goBack();
+      navigation.popToTop();
     } catch (error) {
       console.log('Error in add cat', error);
       setLoading(false);
