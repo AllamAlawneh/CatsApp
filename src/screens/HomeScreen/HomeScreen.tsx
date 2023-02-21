@@ -54,7 +54,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
           activeOpacity={1}
           onPress={handleCatItemPress}>
           <Icon size={20} color={colors.white} name="logo-octocat" />
-          <Text style={styles.catLiName}>{'cat 1'}</Text>
+          <Text style={styles.catLiName}>{item.name}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => deleteCatItem(index)}>
@@ -70,26 +70,23 @@ function HomeScreen({navigation}: HomeScreenProps) {
     );
   };
 
-  const renderEmptyView=()=>{
-return(
-  <View style={styles.noDataContainer}>
-<Text style={styles.noDataTxt}>
-  {'No Cats'}
-</Text>
-  </View>
-)
+  const renderEmptyView = () => {
+    return (
+      <View style={styles.noDataContainer}>
+        <Text style={styles.noDataTxt}>{'No Cats'}</Text>
+      </View>
+    );
   };
 
   return (
     <View style={styles.container}>
       <FlatList
+        keyExtractor={it => String(it.id)}
         showsVerticalScrollIndicator={false}
         data={cats}
         renderItem={renderCatItem}
         ListEmptyComponent={renderEmptyView}
       />
-
-    
     </View>
   );
 }
