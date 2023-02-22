@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
   marginTop16: {
     marginTop: 16,
   },
+  descriptionInput:{
+    marginTop: 16,
+    height:130,
+  }
 });
 
 export default styles;

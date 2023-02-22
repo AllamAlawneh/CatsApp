@@ -74,7 +74,7 @@ function HomeScreen({navigation}: HomeScreenProps) {
   const renderEmptyView = () => {
     return (
       <View style={styles.noDataContainer}>
-        <Text style={styles.noDataTxt}>{'No Cats'}</Text>
+        <Text style={styles.noDataTxt}>{'No Cats ..!'}</Text>
         <Image
           resizeMode="contain"
           style={styles.imgStyle}

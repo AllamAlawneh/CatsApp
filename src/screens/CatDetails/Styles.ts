@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
   detailsItemTitle: {
     color: colors.black,
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: 'bold',
   },
   detailsItemValue: {

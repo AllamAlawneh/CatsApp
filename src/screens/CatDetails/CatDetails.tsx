@@ -49,6 +49,16 @@ function CatDetails({navigation, route}: CatDetailsProps) {
           <Text style={styles.detailsItemTitle}>{'Color'}</Text>
           <Text style={styles.detailsItemValue}>{catDetails.color}</Text>
         </View>
+
+        <View style={styles.detailsItemContainer}>
+          <Text style={styles.detailsItemTitle}>{'Vaccine name'}</Text>
+          <Text style={styles.detailsItemValue}>{catDetails.vaccine}</Text>
+        </View>
+
+        <View style={styles.detailsItemContainer}>
+          <Text style={styles.detailsItemTitle}>{'Description'}</Text>
+          <Text style={styles.detailsItemValue}>{catDetails.description}</Text>
+        </View>
       </ScrollView>
     </View>
   );

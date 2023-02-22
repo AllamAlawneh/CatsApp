@@ -4,4 +4,6 @@ interface CatItem {
   age: string;
   breed: string;
   color: string;
+  description: string;
+  vaccine: string;
 }

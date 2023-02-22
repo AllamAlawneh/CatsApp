@@ -19,6 +19,8 @@ type FormState = {
   age: string;
   breed: string;
   color: string;
+  description: string;
+  vaccine: string;
 };
 
 function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
@@ -30,6 +32,8 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
     age: '',
     breed: '',
     color: '',
+    description: '',
+    vaccine: '',
   });
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -42,6 +46,8 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
           age: catById.age,
           color: catById.color,
           breed: catById.breed,
+          description: catById.description,
+          vaccine: catById.vaccine,
         });
       });
     }
@@ -60,6 +66,8 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
           age: formState.age,
           color: formState.color,
           breed: formState.breed,
+          description: formState.description,
+          vaccine: formState.vaccine,
         };
         StorageHelper.saveItem(storageKeys.catsKey, cats);
         setLoading(false);
@@ -73,6 +81,8 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
         age: formState.age,
         breed: formState.breed,
         color: formState.color,
+        description: formState.description,
+        vaccine: formState.vaccine,
       };
       if (cats == null) {
         StorageHelper.saveItem(storageKeys.catsKey, [newCat]);
@@ -121,6 +131,22 @@ function AddEditCatScreen({navigation, route}: AddEditCatScreenProps) {
           onChange={val => setFormState(oldVal => ({...oldVal, color: val}))}
           value={formState?.color as string}
           placeholder="Color"
+        />
+
+        <Input
+          containerStyle={styles.marginTop16}
+          onChange={val => setFormState(oldVal => ({...oldVal, vaccine: val}))}
+          value={formState?.vaccine as string}
+          placeholder="Vaccine name"
+        />
+
+        <Input
+          containerStyle={styles.descriptionInput}
+          onChange={val =>
+            setFormState(oldVal => ({...oldVal, description: val}))
+          }
+          value={formState?.description as string}
+          placeholder="Description"
         />
 
         <Button
