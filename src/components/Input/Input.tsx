@@ -14,8 +14,8 @@ function Input({onChange, value, placeholder, containerStyle}: InputProps) {
   return (
     <View style={[styles.container, containerStyle]}>
       <TextInput
-      placeholderTextColor={colors.grey}
-      style={styles.inputText}
+        placeholderTextColor={colors.grey}
+        style={styles.inputText}
         placeholder={placeholder}
         value={value}
         onChangeText={onChange}

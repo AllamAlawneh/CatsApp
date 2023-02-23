@@ -14,8 +14,16 @@ function App() {
         name="MyCatsScreen"
         component={HomeScreen}
       />
-      <Stack.Screen options={{ title: 'Add/Edit Details'}} name="AddEditCatScreen" component={AddEditCatScreen} />
-      <Stack.Screen options={{ title: 'Cat Details'}} name="CatDetailsScreen" component={CatDetails} />
+      <Stack.Screen
+        options={{title: 'Add/Edit Details'}}
+        name="AddEditCatScreen"
+        component={AddEditCatScreen}
+      />
+      <Stack.Screen
+        options={{title: 'Cat Details'}}
+        name="CatDetailsScreen"
+        component={CatDetails}
+      />
     </Stack.Navigator>
   );
 }

@@ -5,12 +5,15 @@ import styles from './Styles';
 interface ButtonProps {
   onPress: () => void;
   title: string;
-  containerStyle?:ViewStyle;
+  containerStyle?: ViewStyle;
 }
 
-function Button({onPress, title,containerStyle}: ButtonProps) {
+function Button({onPress, title, containerStyle}: ButtonProps) {
   return (
-    <TouchableOpacity style={containerStyle} activeOpacity={1} onPress={onPress}>
+    <TouchableOpacity
+      style={containerStyle}
+      activeOpacity={1}
+      onPress={onPress}>
       <View style={styles.container} pointerEvents="none">
         <Text style={styles.title}>{title}</Text>
       </View>

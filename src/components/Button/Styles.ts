@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: colors.primary,
     paddingHorizontal: 8,
-    paddingVertical:16,
+    paddingVertical: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     textAlign: 'center',
     fontSize: 14,
-    fontWeight:'bold'
+    fontWeight: 'bold',
   },
 });
 
